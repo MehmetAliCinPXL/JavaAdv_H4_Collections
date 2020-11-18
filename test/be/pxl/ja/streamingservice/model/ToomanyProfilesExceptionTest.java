@@ -1,3 +1,5 @@
+package be.pxl.ja.streamingservice.model;
+
 import be.pxl.ja.streamingservice.exception.InvalidDateException;
 import be.pxl.ja.streamingservice.exception.TooManyProfilesException;
 import be.pxl.ja.streamingservice.model.Account;
