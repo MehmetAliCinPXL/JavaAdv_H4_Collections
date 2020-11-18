@@ -8,7 +8,9 @@ import be.pxl.ja.streamingservice.model.TVShow;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ContentRepository {
 
@@ -42,5 +44,20 @@ public class ContentRepository {
 		contentList.add(eigenKweek);
 
 		return contentList;
+	}
+
+	public Set<Content> getContentSet(){
+		Set<Content> contents = new HashSet <Content>(getContentList());
+		return contents;
+	}
+
+
+	public static void main(String[] args) {
+		Set<Content> list1 = new HashSet<>(new ContentRepository().getContentSet());
+		System.out.println(list1.toString());
+		if(!list1.contains(new Movie("Mission Impossible: Fall Out", Rating.TEENS))){
+			list1.add(new Movie("Mission Impossible: Fall Out", Rating.TEENS));
+		}
+		System.out.println(list1.toString());
 	}
 }
